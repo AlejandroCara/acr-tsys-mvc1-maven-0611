@@ -48,6 +48,7 @@ public class Controller {
 	private ActionListener eliminarVideo;
 	private ActionListener guardarVideo;
 	private ActionListener updateVideo;
+	private ActionListener atras;
 	private ListSelectionListener seleccionarCliente;
 	private ListSelectionListener seleccionarVideo;
 	private WindowListener onVistaFormularioClose;
@@ -80,6 +81,7 @@ public class Controller {
 		this.vistaClientes.getClientesListView().addListSelectionListener(seleccionarCliente);
 		this.vistaClientes.getEditClienteBtn().addActionListener(editarCliente);
 		this.vistaClientes.getDeleteClientBtn().addActionListener(eliminarCliente);
+		this.vistaClientes.getAtrasBtn().addActionListener(atras);
 		
 		//Añadir listener a los botones de la vista formaulario cliente
 		this.vistaFormulario.addWindowListener(onVistaFormularioClose);
@@ -92,6 +94,7 @@ public class Controller {
 		this.vistaVideos.getEditVideoBtn().addActionListener(editarVideo);
 		this.vistaVideos.getDeleteVideoBtn().addActionListener(eliminarVideo);
 		this.vistaVideos.getVideosListView().addListSelectionListener(seleccionarVideo);
+		this.vistaVideos.getAtrasBtn().addActionListener(atras);
 		
 		//Añadir listeners a los botones de la vista formulario video
 		this.formularioVideo.addWindowListener(onVistaFormularioVideoClose);
@@ -271,7 +274,7 @@ public class Controller {
 					limpiarFormularioCliente();
 					iniciarVistaClientes();
 				} else {
-					JOptionPane.showConfirmDialog(null, "Los datos de login son incorrectos");
+					JOptionPane.showConfirmDialog(null, "Los datos son incorrectos");
 				}				
 			}
 		};
@@ -317,7 +320,7 @@ public class Controller {
 					limpiarFormularioCliente();
 					iniciarVistaClientes();
 				} else {
-					JOptionPane.showConfirmDialog(null, "Los datos de login son incorrectos");
+					JOptionPane.showConfirmDialog(null, "Los datos son incorrectos");
 				}
 				
 			}
@@ -342,7 +345,7 @@ public class Controller {
 					vistaFormulario.setVisible(false);
 					iniciarVistaClientes();
 				} else {
-					JOptionPane.showConfirmDialog(null, "Los datos de login son incorrectos");
+					JOptionPane.showConfirmDialog(null, "Los datos son incorrectos");
 				}
 			}
 		};
@@ -400,7 +403,7 @@ public class Controller {
 					limpiarFormularioVideo();
 					iniciarVistaVideos();
 				} else {
-					JOptionPane.showConfirmDialog(null, "Los datos de login son incorrectos");
+					JOptionPane.showConfirmDialog(null, "Los datos son incorrectos");
 				}				
 			}
 		};
@@ -461,7 +464,7 @@ public class Controller {
 					formularioVideo.setVisible(false);
 					iniciarVistaVideos();
 				} else {
-					JOptionPane.showConfirmDialog(null, "Los datos de login son incorrectos");
+					JOptionPane.showConfirmDialog(null, "Los datos son incorrectos");
 				}
 			}
 		};
@@ -496,11 +499,22 @@ public class Controller {
 					limpiarFormularioVideo();
 					iniciarVistaVideos();
 				} else {
-					JOptionPane.showConfirmDialog(null, "Los datos de login son incorrectos");
+					JOptionPane.showConfirmDialog(null, "Los datos son incorrectos");
 				}
 				
 			}
 		};
+		
+		//Listener para volver a la selección de vista al pultas atras
+		atras = new ActionListener() {
+
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					vistaClientes.setVisible(false);
+					vistaVideos.setVisible(false);
+					iniciarVistaSeleccionarVista();
+				}
+			};
 	}
 	
 	//Listar los clientes devueltos de la base de datos en la vistaClientes

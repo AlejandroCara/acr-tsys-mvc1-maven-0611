@@ -19,6 +19,7 @@ public class VistaVideos extends JFrame{
     private JButton newVideoBtn;
     private JButton editVideoBtn;
     private JButton deleteVideoBtn;
+    private JButton atrasBtn;
 	
 	public VistaVideos() {
 		this.setSize(716, 400);
@@ -52,6 +53,11 @@ public class VistaVideos extends JFrame{
         deleteVideoBtn.setLocation(566, 87);
         deleteVideoBtn.setEnabled(false);
         contentPane.add(deleteVideoBtn);
+        
+        atrasBtn = new JButton("Atras");
+        atrasBtn.setSize(124, 30);
+        atrasBtn.setLocation(566, 320);
+        contentPane.add(atrasBtn);
 	}
 	
 	public JButton getNewVideoBtn() {
@@ -68,6 +74,10 @@ public class VistaVideos extends JFrame{
 	
 	public JButton getDeleteVideoBtn() {
 		return deleteVideoBtn;
+	}
+	
+	public JButton getAtrasBtn() {
+		return atrasBtn;
 	}
 	
 	//Añadir un nuevo cliente a la lista que se muetra en la vista

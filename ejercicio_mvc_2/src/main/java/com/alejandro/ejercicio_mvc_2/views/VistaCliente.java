@@ -20,6 +20,7 @@ public class VistaCliente extends JFrame{
     private JButton newClienteBtn;
     private JButton editClientBtn;
     private JButton deleteClientBtn;
+    private JButton atrasBtn;
 	
 	public VistaCliente() {
 		this.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -53,6 +54,11 @@ public class VistaCliente extends JFrame{
         deleteClientBtn.setLocation(350, 86);
         deleteClientBtn.setEnabled(false);
         contentPane.add(deleteClientBtn);
+        
+        atrasBtn = new JButton("Atras");
+        atrasBtn.setSize(124, 30);
+        atrasBtn.setLocation(350, 320);
+        contentPane.add(atrasBtn);
 	}
 	
 	public JButton getNewClienteBtn() {
@@ -69,6 +75,10 @@ public class VistaCliente extends JFrame{
 	
 	public JButton getDeleteClientBtn() {
 		return deleteClientBtn;
+	}
+	
+	public JButton getAtrasBtn() {
+		return atrasBtn;
 	}
 	
 	//Añadir un nuevo cliente a la lista que se muetra en la vista
